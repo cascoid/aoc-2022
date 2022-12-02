@@ -18,7 +18,7 @@ var partOneResponses = map[string]string{
 	"Z": "C", // Scissors
 }
 
-var winningOutcomes = map[string]int{
+var outcomes = map[string]int{
 	"AA": 3,
 	"AB": 6,
 	"AC": 0,
@@ -68,7 +68,7 @@ func partOne() {
 	myTotal := 0
 	for _, round := range allRounds {
 		myWeapon := partOneResponses[round[1]]
-		myTotal += winningOutcomes[round[0]+myWeapon] + values[myWeapon]
+		myTotal += outcomes[round[0]+myWeapon] + values[myWeapon]
 	}
 	fmt.Println(myTotal)
 }
@@ -85,7 +85,7 @@ func partTwo() {
 		case "Z":
 			myWeapon = winningWeapons[round[0]]
 		}
-		myTotal += winningOutcomes[round[0]+myWeapon] + values[myWeapon]
+		myTotal += outcomes[round[0]+myWeapon] + values[myWeapon]
 	}
 	fmt.Println(myTotal)
 }
