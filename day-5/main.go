@@ -74,15 +74,15 @@ func executeInstructions(stacks [][]string, batchMove bool) {
 }
 
 func moveCrates(stacks [][]string, amount, from, to int64, batchMove bool) [][]string {
-	stacksToMove := stacks[from-1][:amount]
+	cratesToMove := stacks[from-1][:amount]
 	stacks[from-1] = stacks[from-1][amount:]
 	if batchMove {
 		// Reverse the order
-		for a, b := 0, len(stacksToMove)-1; a < b; a, b = a+1, b-1 {
-			stacksToMove[a], stacksToMove[b] = stacksToMove[b], stacksToMove[a]
+		for a, b := 0, len(cratesToMove)-1; a < b; a, b = a+1, b-1 {
+			cratesToMove[a], cratesToMove[b] = cratesToMove[b], cratesToMove[a]
 		}
 	}
-	stacks[to-1] = prependInOrder(stacks[to-1], stacksToMove)
+	stacks[to-1] = prependInOrder(stacks[to-1], cratesToMove)
 	return stacks
 }
 
