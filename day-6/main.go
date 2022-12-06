@@ -32,7 +32,7 @@ func findUniqueCharSequence(markerLength int) int {
 	prevChars := []byte{}
 	for i := 0; i < len(input); i++ {
 		r := input[i]
-		index := contains(prevChars, r)
+		index := indexIfContains(prevChars, r)
 		if index != -1 {
 			prevChars = prevChars[index+1:]
 		}
@@ -45,7 +45,7 @@ func findUniqueCharSequence(markerLength int) int {
 	return -1
 }
 
-func contains(arr []byte, elem byte) int {
+func indexIfContains(arr []byte, elem byte) int {
 	for i, a := range arr {
 		if a == elem {
 			return i
