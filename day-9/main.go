@@ -34,7 +34,7 @@ var Directions = map[string]Coordinate{
 var instructions []Instruction
 
 func main() {
-	input, err := os.Open("input.tXt")
+	input, err := os.Open("input.txt")
 	if err != nil {
 		panic(err)
 	}
